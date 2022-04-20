@@ -21,7 +21,7 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header divcard">
-				<h3>Registrarme ✨</h3>
+				<h3>Registrarse ✨</h3>
 				<div class="d-flex justify-content-end social_icon">
 					<!-- <span><i class="fab fa-facebook-square"></i></span>
 					<span><i class="fab fa-google-plus-square"></i></span>
@@ -30,29 +30,57 @@
 			</div>
 			<div class="card-body divcard">
 				<form>
-					<!-- <div class="input-group form-group">
+					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-address-card"></i></span>
 						</div>
-						<input type="text" class="form-control" #nombre placeholder="nombre">
-						
-					</div> -->
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" #user placeholder="usuario">
+						<input type="text" class="form-control" #nombre placeholder="Nombre" [(ngModel)]="user.nombre" name="nombre">
 						
 					</div>
+					<!-- fas fa-address-card -->
+					<!-- fas fa-user -->
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-at"></i></span>
+						</div>
+						<input type="text" class="form-control" #email placeholder="Email" [(ngModel)]="user.email" name="email">
+					</div>
+					
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" #pass placeholder="clave">
+						<input type="password" class="form-control" #pass placeholder="Clave" [(ngModel)]="user.pass" name="pass">
 					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
+						</div>
+						<!-- <input type="date" class="form-control" #birthday placeholder="Date" onfocus="(this.type='date')" id="date"> -->
+						<input placeholder="Fecha de nacimiento" class="form-control" type="text" #birthday onfocus="(this.type='date')" onblur="(this.type='text')" id="date" [(ngModel)]="user.birthday" name="birthday"/>
+					</div>
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<!-- <input type="date" class="form-control" #birthday placeholder="Date" onfocus="(this.type='date')" id="date"> -->
+						
+    					<select name="sexo" class="form-control text-secondary" placeholder="sexo"  name="sexo" [(ngModel)]="user.sexo">
+							<option hidden selected>Sexo</option>
+							<option value="femenimo">Femenino</option>
+							<option value="masculino">Masculino</option>
+							<option value="nobinario">No binario</option>
+							<option value="otro">Otro</option>
+						</select>
+						<!-- <input placeholder="Fecha de nacimiento" class="form-control" type="text" #birthday onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /> -->
+					</div>
+
 					<div class="form-group">
-						<input type="button" value="Enviar" class="btn float-right login_btn" (click)="registrar(user.value, pass.value)">
+						<input type="button" value="Enviar" class="btn float-right login_btn" (click)="registrar()">
 					</div>
+
+					<!-- <input type="button" value="hola" (click)="mostraruser()"> -->
 				</form>
 			</div>
 			

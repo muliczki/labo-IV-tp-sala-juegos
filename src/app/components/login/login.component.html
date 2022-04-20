@@ -46,20 +46,24 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" #user placeholder="usuario">
+						<input type="text" class="form-control" placeholder="usuario" [(ngModel)]="user.email" name="email">
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" #pass placeholder="clave">
+						<input type="password" class="form-control" #pass placeholder="clave" [(ngModel)]="user.pass" name="pass">
 					</div>
 					<!-- <div class="row align-items-center remember">
 						<input type="checkbox">Recordarme
 					</div> -->
 					<div class="form-group">
-						<input type="button" value="Ingresar" class="btn float-right login_btn" (click)= "login(user.value, pass.value)">
+						<input type="button" value="Ingresar" class=" justify-content-center btn float-right login_btn" (click)= "login()">
+					</div>
+					<br><br><br><br><br>
+					<div class="form-group text-center" >
+						<input type="button" value="Acceso rápido" class="btn bg-secondary" (click)= "accederRapido()">
 					</div>
 				</form>
 			</div>

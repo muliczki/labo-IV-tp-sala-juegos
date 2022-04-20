@@ -14,7 +14,7 @@ export class AuthService {
   
 
 
-  login(user:string, pass:string){
+  login(user:any, pass:any){
     return this.auth.signInWithEmailAndPassword(user, pass);
   }
 
@@ -22,7 +22,7 @@ export class AuthService {
     return this.auth.signOut();
   }
 
-  registrar(user:string, pass:string){
+  registrar(user:any, pass:any){
     return this.auth.createUserWithEmailAndPassword(user, pass);
   }
 
