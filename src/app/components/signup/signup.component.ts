@@ -13,6 +13,8 @@ export class SignupComponent implements OnInit {
 
   public user = new Usuario();
   public listaUsuarios:Usuario[] = [];
+  public error = false;
+  public mensaje = "";
   constructor(private auth:AuthService, private router:Router, private userServ:UserService) {
     this.user.sexo="Sexo";
     this.userServ.obtenerUsuarios().subscribe(
@@ -44,7 +46,8 @@ export class SignupComponent implements OnInit {
       await this.crearUsuario();
       this.router.navigateByUrl('home');
     }catch(e: any){
-      alert(e.message);
+      this.mensaje = "El email ya pertenece a un usuario";
+      this.error = true;
     }
   }
 
