@@ -15,6 +15,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './components/alert/alert.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ModalsComponent } from './components/modals/modals.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AlertComponent } from './components/alert/alert.component';
     LoginComponent,
     HomeComponent,
     SignupComponent,
-    AlertComponent
+    AlertComponent,
+    NavbarComponent,
+    ModalsComponent
   ],
   imports: [
     BrowserModule,

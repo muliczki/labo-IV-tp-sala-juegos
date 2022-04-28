@@ -46,7 +46,7 @@ export class SignupComponent implements OnInit {
       await this.crearUsuario();
       this.router.navigateByUrl('home');
     }catch(e: any){
-      this.mensaje = "El email ya pertenece a un usuario";
+      this.mensaje = "El email ya pertenece a un usuario!!";
       this.error = true;
     }
   }
