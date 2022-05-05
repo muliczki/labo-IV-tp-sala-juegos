@@ -16,7 +16,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './components/alert/alert.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ModalsComponent } from './components/modals/modals.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { ModalsComponent } from './components/modals/modals.component';
     SignupComponent,
     AlertComponent,
     NavbarComponent,
-    ModalsComponent
   ],
   imports: [
     BrowserModule,

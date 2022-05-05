@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       var modelo = this;
 
       this.logUser.email = this.user.email;
-      this.logUser.fechaAcceso = Date();
+      this.logUser.fechaAcceso = this.userServ.formatearFecha(new Date());
 
       this.userServ.crearLogUsuario(this.logUser);
 

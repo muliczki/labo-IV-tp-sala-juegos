@@ -6,6 +6,7 @@ export class Usuario {
     public pass?:string;
     public birthday?:string;
     public sexo?:string;
+    public fechaCreacion?:string;
 
 
 }

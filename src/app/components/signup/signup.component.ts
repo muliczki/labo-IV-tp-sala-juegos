@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { LogUsuario } from 'src/app/classes/log-usuario';
 import { Usuario } from 'src/app/classes/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
+
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
+
 export class SignupComponent implements OnInit {
+  
 
   public user = new Usuario();
+  public logUser = new LogUsuario();
   public listaUsuarios:Usuario[] = [];
   public error = false;
   public mensaje = "";
@@ -20,6 +26,8 @@ export class SignupComponent implements OnInit {
     this.userServ.obtenerUsuarios().subscribe(
       usuarios => this.listaUsuarios = usuarios
     );
+
+
    }
 
   ngOnInit(): void {
@@ -32,6 +40,7 @@ export class SignupComponent implements OnInit {
 
     // console.log(this.producto.comestible);
     this.user.id = this.listaUsuarios.length + 1;
+    this.user.fechaCreacion = this.userServ.formatearFecha(new Date());
     console.log(this.user);
     await this.userServ.crearUsuario(this.user);
     // .then(
@@ -43,6 +52,10 @@ export class SignupComponent implements OnInit {
   async registrar (){
     try{
       await this.auth.registrar(this.user.email, this.user.pass);
+      this.logUser.email = this.user.email;
+      this.logUser.fechaAcceso = this.userServ.formatearFecha(new Date());
+
+      this.userServ.crearLogUsuario(this.logUser);
       await this.crearUsuario();
       this.router.navigateByUrl('home');
     }catch(e: any){
@@ -58,4 +71,10 @@ export class SignupComponent implements OnInit {
   mostraruser(){
     console.log(this.listaUsuarios.length);
   }
+
+
+  
 }
+
+
+
