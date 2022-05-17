@@ -14,6 +14,9 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'signup', component: SignupComponent},
   {
+    path:'ahorcado', loadChildren: () => import('./modules/ahorcado/ahorcado.module').then(m => m.AhorcadoModule)
+  },
+  {
     path:'**', component: inicioComponent
   }
 ];
