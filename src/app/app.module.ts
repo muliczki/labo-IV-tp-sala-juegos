@@ -5,7 +5,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 import { AppComponent } from './app.component';
-import { inicioComponent } from './components/inicio/inicio.component';
 import { AppRoutingModule } from './app-routing.module';
 import { QuiensoyComponent } from './components/quiensoy/quiensoy.component';
 import { LoginComponent } from './components/login/login.component';
@@ -17,17 +16,18 @@ import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './components/alert/alert.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MayormenorComponent } from './modules/mayormenor/mayormenor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    inicioComponent,
     QuiensoyComponent,
     LoginComponent,
     HomeComponent,
     SignupComponent,
     AlertComponent,
     NavbarComponent,
+    MayormenorComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { letter } from '../ahorcado';
-import { AhorcadoService } from '../ahorcado.service';
+import { letter } from './ahorcado';
+import { AhorcadoService } from './ahorcado.service';
 
 @Component({
   selector: 'app-ahorcado',

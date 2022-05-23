@@ -66,12 +66,31 @@
           <div class="container ">
       
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2">
-              <div class="col">
-                <div class="card shadow-sm">
+
+
+               <!--<div class="col">
+                <div class="card shadow-sm" style="max-width: 300px; min-width: 100px;">
                   <img src="../../../assets/preguntados.jpg" alt="preguntados">
       
-                  <!-- <div class="card-body">
+                  <div class="card-body">
                     <p class="card-text">This ttle bit longer.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      </div>
+                      <small class="text-muted">9 mins</small>
+                    </div>
+                  </div> 
+                </div>
+              </div>-->
+
+              <div class="col">
+                <div class="card shadow-sm" style="max-width: 300px; min-width: 100px;">
+                    <img src="../../../assets/ahorcadoicono.jpg" alt="preguntados" [routerLink]="['/ahorcado']" style="cursor: pointer;" height="150px">
+      
+                  <!-- <div class="card-body">
+                    <p class="card-text">This is a a little bit longer.</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -82,40 +101,13 @@
                   </div> -->
                 </div>
               </div>
-
               <div class="col">
-                <div class="card shadow-sm">
-                    <img src="../../../assets/ahorcado.jpg" alt="preguntados">
+                <div class="card shadow-sm" style="max-width: 300px; min-width: 100px;">
+                    <img src="../../../assets/mayormenoricono.jpg" alt="preguntados" height="150px" [routerLink]="['/mayormenor']" style="cursor: pointer;">
       
-                  <div class="card-body">
-                    <p class="card-text">This is a a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                      </div>
-                      <small class="text-muted">9 mins</small>
-                    </div>
-                  </div>
                 </div>
               </div>
-              <div class="col">
-                <div class="card shadow-sm">
-                    <img src="../../../assets/ahorcado.jpg" alt="preguntados">
-      
-                  <div class="card-body">
-                    <p class="card-text">This is t is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                      </div>
-                      <small class="text-muted">9 mins</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
+              <!-- <div class="col">
                 <div class="card shadow-sm">
                     <img src="../../../assets/ahorcado.jpg" alt="preguntados">
       
@@ -129,13 +121,14 @@
                       <small class="text-muted">9 mins</small>
                     </div>
                   </div>
-                </div>
+                </div> -->
       
-                <div class="col-5">
+                <!-- <div class="col-5">
                   <a [routerLink]="['/ahorcado']" > ahorcado</a>
-                </div>
+                  <a [routerLink]="['/mayormenor']" > mayormenor</a>
+                </div> 
               
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

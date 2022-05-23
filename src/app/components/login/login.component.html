@@ -29,19 +29,20 @@
 </head>
 <!-- <app-menuprincipal></app-menuprincipal> -->
 <body>
+	<div class="container2">
 	<app-navbar></app-navbar>
 	<div class="container">
 		<div class="d-flex justify-content-center h-100">
-		<div class="card">
+		<div class="card"  style="max-height: 400px;">
 			<div class="card-header">
-				<h3>Iniciar sesión 🌈</h3>
+				<h3>Iniciar sesión</h3>
 				<div class="d-flex justify-content-end social_icon">
 					<!-- <span><i class="fab fa-facebook-square"></i></span>
 					<span><i class="fab fa-google-plus-square"></i></span>
 					<span><i class="fab fa-twitter-square"></i></span> -->
 				</div>
 			</div>
-			<div class="card-body">
+			<div class="card-body" style="max-height: 300px;">
 				<form>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -62,25 +63,26 @@
 					<div class="form-group">
 						<input type="button" value="Ingresar" class=" justify-content-center btn float-right login_btn" (click)= "login()">
 					</div>
-					<br><br><br><br><br>
+					<br><br><br>
 					<div class="form-group text-center" >
-						<input type="button" value="Acceso rápido" class="btn bg-secondary" (click)= "accederRapido()">
+						<input type="button" value="Acceso rápido tester" class="btn btn-dark btn-sm" (click)= "accederRapido()">
 					</div>
 				</form>
 			</div>
-			<div class="card-footer">
-				<div class="d-flex links text-white justify-content-center">
-					<div class="col-7">
+			<div class="card-footer" style="font-size: 14px;">
+				<div class="d-flex links text-white justify-content-center font-size"  >
+					<div class="col-7" >
 						No está registrado? 
 					</div>
 					<div class="col-5">
-						<a [routerLink]="['/signup']" > Registrarse</a>
+						<a [routerLink]="['/signup']"  ><b> Registrarse</b></a>
 					</div>
 				</div>
 				<div class="d-flex justify-content-center">
-					<a href="#">Olvidó su contraseña?</a>
+					<a href="#"> <b> Olvidó su contraseña?</b></a>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 </div>
