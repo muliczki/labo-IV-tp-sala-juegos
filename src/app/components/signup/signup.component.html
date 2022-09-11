@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>SignUp Page</title>
+   <!--Made with love by Mutiullah Samim -->
+   
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="signup.component.css">
+</head>
+<body>
+	<div class="container2">
+
+		<app-navbar></app-navbar>
+<div class="container">
+	<div class="d-flex justify-content-center "style="max-height: 450px;" >
+		
+		<div class="card" style="max-height: 500px;">
+			<div class="card-header divcard">
+				<h3>Registrarse</h3>
+			</div>
+			<div class="card-body divcard">
+
+				<form>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-address-card"></i></span>
+						</div>
+						<input type="text" class="form-control" #nombre placeholder="Nombre de usuario" [(ngModel)]="user.nombre" name="nombre">
+						
+					</div>
+					<!-- fas fa-address-card -->
+					<!-- fas fa-user -->
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-at"></i></span>
+						</div>
+						<input type="text" class="form-control" #email placeholder="Email" [(ngModel)]="user.email" name="email">
+					</div>
+					
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" #pass placeholder="Clave" [(ngModel)]="user.pass" name="pass">
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
+						</div>
+						<!-- <input type="date" class="form-control" #birthday placeholder="Date" onfocus="(this.type='date')" id="date"> -->
+						<input placeholder="Fecha de nacimiento" class="form-control" type="text" #birthday onfocus="(this.type='date')" onblur="(this.type='text')" id="date" [(ngModel)]="user.birthday" name="birthday"/>
+					</div>
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<!-- <input type="date" class="form-control" #birthday placeholder="Date" onfocus="(this.type='date')" id="date"> -->
+						
+    					<select name="sexo" class="form-control text-secondary" placeholder="sexo"  name="sexo" [(ngModel)]="user.sexo">
+							<option hidden selected>Sexo</option>
+							<option value="femenimo">Femenino</option>
+							<option value="masculino">Masculino</option>
+							<option value="nobinario">No binario</option>
+							<option value="otro">Otro</option>
+						</select>
+						<!-- <input placeholder="Fecha de nacimiento" class="form-control" type="text" #birthday onfocus="(this.type='date')" onblur="(this.type='text')" id="date" /> -->
+					</div>
+
+					<div class="form-group">
+						<input type="button" value="Enviar" class="btn float-right login_btn" (click)="registrar()">
+					</div>
+
+					<!-- <input type="button" value="hola" (click)="mostraruser()"> -->
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	</div>
+	
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+
+<div class="text-center p-5 ">
+  <img src={{srcCarta}} alt="" height="200px" width="150px">
+  <img src={{srcNaipe}} alt="" height="200px" width="160px" style="cursor: pointer;" (click)="jugar() ">
+
+  <br><br>
+
+  <!-- <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" for="eleccion" [value]="'mayor'" [(ngModel)]="eleccion">
+      <label class="form-check-label" >
+        Mayor
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked for="eleccion" [value]="'menor'"  [(ngModel)]="eleccion">
+      <label class="form-check-label" >
+        Menor
+      </label>
+  </div> -->
+
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-success" (click)="eleccion='mayor'">MAYOR</button>
+    <button type="button" class="btn btn-danger" (click)="eleccion='menor'">MENOR</button>
+  </div>
+    
+
+
+
+<h1>Puntos: {{puntos}}</h1>
+<p class="h4 text-danger">Oportunidades restantes: {{remainingAttempts}}</p> 
+
+
+<div class="container">
+  <app-tabla [titulos]="titulosColumnas" [filas]="filas" *ngIf="filas!=[]"></app-tabla>
+</div>

@@ -1,0 +1,31 @@
+<div class="mainConten">
+  
+  <div class="tiles">Tiles </div>
+ <!-- recorro los 6 renglones de intento -->
+ <ng-container *ngFor="let item of boxes">
+   <div class="parentTile"> 
+     
+     <!-- recorro las 5 letras de cada intento -->
+     <ng-container *ngFor="let innerItem of item">
+       
+      <div class="childTile " [ngClass]="innerItem.class" > {{innerItem.key}}</div>
+    </ng-container>
+
+  </div>
+ </ng-container>
+
+    <div class="keyboard">
+    <!-- recorro las letras del teclado -->
+  <ng-container *ngFor="let item of keyboard">
+    <!-- separo las letras del enviar y borrar para hacerle un width mas grande -->
+    <ng-container *ngIf="item.key!=='ENVIAR' && item.key!=='BORRAR'">
+      <button class="keyboardButton" (click)="handleChange(item.key)" [ngClass]="item.class">{{item.key}}</button>
+    </ng-container>
+    <ng-container *ngIf="item.key==='ENVIAR' || item.key==='BORRAR'">
+      <button class="keyboardButton" style="width:75px" (click)="handleChange(item.key)">{{item.key}}</button>
+    </ng-container>
+  </ng-container>  
+
+    
+  </div>
+</div>

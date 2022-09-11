@@ -1,0 +1,49 @@
+.mainConten{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.parentTile{
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.childTile{
+  height: 62px;
+  width: 62px;
+  border: 2px solid grey;
+  margin: 4px 0.5px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+}
+
+.keyboard{
+  width: 512px;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.keyboardButton{
+  height: 40px;
+  width: 50px;
+  margin: 2px ;
+  border: 1px solid gray;
+}
+
+.green{
+  background-color:  rgb(18, 235, 43) !important
+}
+
+.yellow{
+  background-color:  rgba(233, 239, 61, 0.892) !important
+}
+
+.grey{
+  background-color:  rgb(162, 163, 162) !important
+}

@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html, body{
+background-color: #071824;
+background-size: cover;
+background-repeat: no-repeat;
+height: 100vh;
+font-family: 'Numans', sans-serif;
+min-height: 100%;
+}
+
+body{
+/* Ubicación de la imagen */
+background-image: url(../../../assets/back3.jpg);
+
+/* Para dejar la imagen de fondo centrada, vertical y horizontalmente */
+background-position: center center;
+
+/* Para que la imagen de fondo no se repita */
+background-repeat: no-repeat;
+
+/* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+background-attachment: fixed;
+
+/* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+background-size: cover;
+
+/* Se muestra un color de fondo mientras se está cargando la imagen de fondo o si hay problemas para cargarla */
+background-color: #071824;
+
+}
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+
+.card{
+height: 525px;
+margin-top: 30px;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+color: white;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 40px;
+background-color: #071824;
+color: white;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color:white;
+background-color: #1271ff;
+width: 100px;
+border : 1px white;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+#numberHelp{
+
+    display: block;
+margin-top: 0px;    
+
+}
+
+#email{
+    box-sizing: border-box;
+}
+
+h3{
+    margin: 0;
+}
+
+form{
+    line-height: 0;
+}
+
+label{
+    margin-top: 0;
+    margin-bottom: 10px;
+}
