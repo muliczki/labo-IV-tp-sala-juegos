@@ -1,5 +1,6 @@
 import { Expression } from '@angular/compiler';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LogUsuario } from 'src/app/classes/log-usuario';
 import { Usuario } from 'src/app/classes/usuario';
@@ -25,13 +26,26 @@ export class SignupComponent implements OnInit {
   public error = false;
   public mensaje = "";
   public nombreDisponible = true;
+  public chequeoPass = "";
 
-  constructor(private auth:AuthService, private router:Router, private userServ:UserService) {
+  formulario:FormGroup;
+
+  constructor(private auth:AuthService, private router:Router, private userServ:UserService,  private fb:FormBuilder) {
     this.user.sexo="Sexo";
     this.userServ.obtenerUsuarios().subscribe(
       usuarios => this.listaUsuarios = usuarios
     );
 
+    this.formulario = fb.group({
+      nombre: ["", [Validators.required, Validators.minLength(3)]],
+      email: ["", [Validators.required, Validators.email]],
+      pass: ["", [Validators.required, Validators.minLength(6)]],
+      pass2: ["", [Validators.required, Validators.minLength(6)]],
+      fecha: ["", [Validators.required]],
+      sexo: ["", [Validators.required]],
+
+      
+    })
 
    }
 
@@ -101,6 +115,9 @@ export class SignupComponent implements OnInit {
 
   }
 
+  get errorControl() {
+    return this.formulario.controls;
+  }
 
   
 }

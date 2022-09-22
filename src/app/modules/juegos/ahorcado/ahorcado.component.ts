@@ -1,8 +1,7 @@
-import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { PuntuacionAhorcado } from 'src/app/classes/puntuacion-ahorcado';
 import { Usuario } from 'src/app/classes/usuario';
-import { ApiPalabrasService } from 'src/app/services/apipalabras/apipalabras.service';
+import { ApiPalabrasService, listaPalabras } from 'src/app/services/apipalabras/apipalabras.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
@@ -10,17 +9,11 @@ import { AhRankingServService } from './ah-ranking-serv.service';
 import { letter } from './clases/ahorcado';
 import { PuntuacionAcumulada } from './clases/puntuacion-acumulada';
 
-import { listaPalabras } from 'src/app/services/apipalabras/apipalabras.service';
-
-
-
 @Component({
   selector: 'app-ahorcado',
   templateUrl: './ahorcado.component.html',
   styleUrls: ['./ahorcado.component.css']
 })
-
-
 export class AhorcadoComponent implements OnInit {
 
   getWords = () => (["ahorcado"]);
@@ -296,6 +289,4 @@ export class AhorcadoComponent implements OnInit {
 
   }
 
-
 }
-

@@ -19,7 +19,7 @@
 <body>
 	<div class="container2">
 
-		<app-navbar></app-navbar>
+		<!-- <app-navbar></app-navbar> -->
 <div class="container">
 	<div class="d-flex justify-content-center "style="max-height: 450px;" >
 		
@@ -29,35 +29,52 @@
 			</div>
 			<div class="card-body divcard">
 
-				<form>
+				<form [formGroup]="formulario" (ngSubmit)="registrar()">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-address-card"></i></span>
 						</div>
-						<input type="text" class="form-control" #nombre placeholder="Nombre de usuario" [(ngModel)]="user.nombre" name="nombre">
+						<input type="text" formControlName="nombre" class="form-control" #nombre placeholder="Nombre de usuario" [(ngModel)]="user.nombre" name="nombre">
 						
+						<div id="nombreHelp" class="form-text text-light font-weight-bold"  *ngIf="formulario.get('nombre')?.hasError('minlength') && formulario.get('nombre')?.touched">El usuario debe tener minimo 3 caracteres</div>
 					</div>
 					<!-- fas fa-address-card -->
 					<!-- fas fa-user -->
+						
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-at"></i></span>
 						</div>
-						<input type="text" class="form-control" #email placeholder="Email" [(ngModel)]="user.email" name="email">
+						<input type="text" formControlName="email" class="form-control" #nombre placeholder="Email" [(ngModel)]="user.email" name="email">
+						
+						<div id="emailHelp" class="form-text text-light font-weight-bold"  *ngIf="formulario.get('email')?.hasError('email') && formulario.get('email')?.touched">Ingresar un email válido</div>
+					</div>
+							
+					
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" formControlName="pass" class="form-control" #pass placeholder="Clave" [(ngModel)]="user.pass" name="pass">
+
+						<div id="passHelp" class="form-text text-light font-weight-bold"  *ngIf="formulario.get('pass')?.hasError('minlength') && formulario.get('pass')?.touched">La contraseña debe tener minimo 6 caracteres</div>
 					</div>
 					
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" #pass placeholder="Clave" [(ngModel)]="user.pass" name="pass">
+						<input type="password" formControlName="pass2" class="form-control" #pass2 placeholder="Reingrese su clave" [(ngModel)]="chequeoPass" name="pass2">
+						<div id="passHelp2" class="form-text text-light font-weight-bold"  *ngIf="formulario.get('pass2')!=formulario.get('pass') && formulario.get('pass2')?.touched">Las contraseñas deben coincidir</div>
 					</div>
+
+
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
 						</div>
 						<!-- <input type="date" class="form-control" #birthday placeholder="Date" onfocus="(this.type='date')" id="date"> -->
-						<input placeholder="Fecha de nacimiento" class="form-control" type="text" #birthday onfocus="(this.type='date')" onblur="(this.type='text')" id="date" [(ngModel)]="user.birthday" name="birthday"/>
+						<input placeholder="Fecha de nacimiento" formControlName="fecha" class="form-control" type="text" #birthday onfocus="(this.type='date')" onblur="(this.type='text')" id="date" [(ngModel)]="user.birthday" name="birthday"/>
 					</div>
 
 					<div class="input-group form-group">
@@ -66,7 +83,7 @@
 						</div>
 						<!-- <input type="date" class="form-control" #birthday placeholder="Date" onfocus="(this.type='date')" id="date"> -->
 						
-    					<select name="sexo" class="form-control text-secondary" placeholder="sexo"  name="sexo" [(ngModel)]="user.sexo">
+    					<select name="sexo" formControlName="sexo" class="form-control text-secondary" placeholder="sexo"  name="sexo" [(ngModel)]="user.sexo">
 							<option hidden selected>Sexo</option>
 							<option value="femenimo">Femenino</option>
 							<option value="masculino">Masculino</option>
@@ -77,7 +94,7 @@
 					</div>
 
 					<div class="form-group">
-						<input type="button" value="Enviar" class="btn float-right login_btn" (click)="registrar()">
+						<input type="submit" value="Enviar" class="btn float-right login_btn" [disabled]="formulario.invalid">
 					</div>
 
 					<!-- <input type="button" value="hola" (click)="mostraruser()"> -->

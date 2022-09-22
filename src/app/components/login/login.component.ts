@@ -53,9 +53,9 @@ export class LoginComponent implements OnInit {
 
       this.userServ.crearLogUsuario(this.logUser);
 
-      setTimeout(function(){
-        modelo.router.navigateByUrl('/home');
-      }, 2000);
+      modelo.router.navigateByUrl('/home');
+      // setTimeout(function(){
+      // }, 2000);
       
     }catch(e: any){
       alert(e.message);

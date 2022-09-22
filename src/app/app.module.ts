@@ -16,9 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlertComponent } from './components/alert/alert.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { MayormenorComponent } from './modules/mayormenor/mayormenor.component';
 import { TablaComponent } from './components/tabla/tabla.component';
-import { WordleComponent } from './modules/wordle/wordle.component';
+import { WordleComponent } from './modules/juegos/wordle/wordle.component';
+import { NavbarModule } from './components/navbar/navbar.module';
 
 
 
@@ -30,10 +30,7 @@ import { WordleComponent } from './modules/wordle/wordle.component';
     HomeComponent,
     SignupComponent,
     AlertComponent,
-    NavbarComponent,
-    MayormenorComponent,
-    TablaComponent,
-    WordleComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

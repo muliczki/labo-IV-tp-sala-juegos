@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
   <div class="container-fluid">
-    <a class="navbar-brand" href="inicio" >Bienvenido</a>
+    <a class="navbar-brand" [routerLink]="['/inicio']" >Bienvenido</a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,15 +8,24 @@
     
     <div class="collapse navbar-collapse" id="navbarsExample03">
       <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-        <li class="nav-item" *ngIf="ruta.url !== '/login' && ruta.url !== '/home' && ruta.url !== '/'">
-          <a class="nav-link active" aria-current="page" href="login">Ingresar</a>
+        <li class="nav-item" *ngIf="ruta.url !== '/login' && ruta.url !== '/home' && ruta.url !== '/' && auth.userLoggeado ===undefined">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/login']" >Ingresar</a>
         </li>
-        <li class="nav-item" *ngIf="ruta.url !== '/signup' && ruta.url !== '/home'">
-          <a class="nav-link" href="signup">Registrarse</a>
+        <li class="nav-item" *ngIf="ruta.url !== '/signup' && ruta.url !== '/home' && auth.userLoggeado ===undefined">
+          <a class="nav-link" [routerLink]="['/signup']">Registrarse</a>
         </li>
         <li class="nav-item" *ngIf="ruta.url !== '/quiensoy'" >
-          <a class="nav-link" href="quiensoy">Quién soy</a>
+          <a class="nav-link" [routerLink]="['/quiensoy']">Quién soy</a>
         </li>
+        <li class="nav-item" *ngIf="auth.userLoggeado !==undefined && ruta.url !== '/login' && ruta.url !== '/signup' && ruta.url !== '/juegos/chat'">
+          <a class="nav-link"[routerLink]="['/juegos/chat']">Sala Chat</a>
+        </li>
+
+        <li class="nav-item" *ngIf="auth.userLoggeado !==undefined && ruta.url !== '/login' && ruta.url !== '/signup' && ruta.url !== '/home'">
+          <a class="nav-link"[routerLink]="['/home']">Juegos</a>
+        </li>
+
+
         <!-- <li class="nav-item">
           <a class="nav-link disabled">Disabled</a>
         </li>
@@ -32,6 +41,11 @@
       <!-- <form>
         <input class="form-control" type="text" placeholder="Search" aria-label="Search">
       </form> -->
+    </div>
+    
+    <div class="d-flex mb-1" *ngIf="auth.userLoggeado !==undefined && ruta.url !== '/login' && ruta.url !== '/signup'" >
+      <a class="ms-auto p-2 nav-link" >Hola {{auth.nombreUserLoggeado}}</a>
+      <button class="btn btn-secondary ms-auto p-2" (click)="salir()" [routerLink]="['/login']"   >Cerrar sesión</button>
     </div>
   </div>
 </nav>

@@ -1,6 +1,6 @@
 body{
     /* Ubicación de la imagen */
-    background-image: url(../../../assets/fondoahorcado.avif);
+    background-image: url(../../../../assets/fondoahorcado.avif);
     
     /* Para dejar la imagen de fondo centrada, vertical y horizontalmente */
     background-position: center center;

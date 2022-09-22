@@ -23,19 +23,9 @@ const routes: Routes = [
   },
   {path: 'signup', component: SignupComponent},
   {
-    path:'ahorcado',
+    path:'juegos', 
     canActivate: [AuthGuard],
-    loadChildren: () => import('./modules/ahorcado/ahorcado.module').then(m => m.AhorcadoModule)
-  },
-  {
-    path:'mayormenor', 
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./modules/mayormenor/mayormenor.module').then(m => m.MayormenorModule)
-  },
-  {
-    path:'wordle', 
-    // canActivate: [AuthGuard],
-    loadChildren: () => import('./modules/wordle/wordle.module').then(m => m.WordleModule)
+    loadChildren: () => import('./modules/juegos/juegos.module').then(m => m.JuegosModule)
   },
   {
     path:'**', redirectTo: 'login', pathMatch: 'full' 

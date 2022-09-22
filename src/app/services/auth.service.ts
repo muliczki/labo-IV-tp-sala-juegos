@@ -7,7 +7,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class AuthService {
 
   userLoggeado?:string;
-  nombreUserLoggeado?:string;
+  nombreUserLoggeado:string|undefined=undefined;
 
   constructor(private auth:AngularFireAuth) { 
     auth.authState.subscribe(user =>{

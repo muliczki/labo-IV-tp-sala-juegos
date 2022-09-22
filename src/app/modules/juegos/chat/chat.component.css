@@ -1,0 +1,54 @@
+#body{
+    border: 2px solid black;  
+    border-radius: 8px;
+    width: 50%;
+    height: 50%;
+
+    
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    margin: auto;
+    padding: auto;
+}
+
+#main{
+    height: 100%;
+    background-image: url(../../../../assets/fondo-diferentes-formas-colores_23-2148968478.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 60px;
+}
+
+
+#controles > button{
+    width: 20%;
+    height: 50px;
+    border-radius: 8px;
+    background-color: lightgreen;
+}
+#controles > input{
+    width: 80%;
+    height: 50px;
+    border-radius: 8px;
+}
+
+#chats{
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 8px;
+    overflow: scroll;
+    overflow-y: auto;
+    width: 95%;
+    height: 80%;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:justify;
+}
+p{
+    width: 100%;
+}
