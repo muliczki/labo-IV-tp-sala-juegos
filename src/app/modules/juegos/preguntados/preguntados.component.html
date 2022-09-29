@@ -1,1 +1,18 @@
-<!-- <p *ngFor="let item of personajes">{{item.name}}</p> -->
+<html>
+
+    <body>
+        
+        <div *ngIf="cargoPregunta" class="text-center p-3" >
+        
+            <h2> {{miPregunta.pregunta}}</h2>
+            <img src="{{miPregunta.opcion1.image}}" (click)="seleccionar(miPregunta.opcion1)" width="200px" height="200px">
+            <img src="{{miPregunta.opcion2.image}}" (click)="seleccionar(miPregunta.opcion2)" width="200px" height="200px">
+            <img src="{{miPregunta.opcion3.image}}" (click)="seleccionar(miPregunta.opcion3)" width="200px" height="200px">
+        
+            <h3>PUNTOS: {{puntos}}</h3>
+            <h4>VIDAS RESTANTES: {{vidas}}</h4>
+        
+        </div>
+    </body>
+
+</html>

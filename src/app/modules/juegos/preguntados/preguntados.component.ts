@@ -1,5 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiPreguntadosService, listaPersonajesHp } from './servicio/api-preguntados.service';
+import Swal from 'sweetalert2';
+import { ApiPreguntadosService, preguntas } from './servicio/api-preguntados.service';
+
+class Pregunta {
+
+  pregunta:any;
+  opcion1:any;
+  opcion2:any;
+  opcion3:any;
+  correcta:any;
+
+}
 
 @Component({
   selector: 'app-preguntados',
@@ -8,18 +19,33 @@ import { ApiPreguntadosService, listaPersonajesHp } from './servicio/api-pregunt
 })
 export class PreguntadosComponent implements OnInit {
 
-  personajes= listaPersonajesHp;
   listadoApi = [];
-  personaje = {};
+  personaje:any;
+
+  preguntas = preguntas;
+
+  miPregunta:Pregunta;
+  cargoPregunta = false;
+  preguntasUsadas = Array();
+
+  indice:number=-1;
+  puntos = 0;
+  vidas = 3;
   
   constructor(private apiHp:ApiPreguntadosService) {
+    this.miPregunta = new Pregunta();
   }
 
   
 
   ngOnInit(): void {
+    this.reiniciarJuego();
     this.obtenerPersonajes();
-    this.elegirPersonaje();
+
+    setTimeout(() => {
+      
+      this.elegirPregunta();
+    }, 1000);
   }
   
 
@@ -32,23 +58,112 @@ export class PreguntadosComponent implements OnInit {
       
   }
 
-  elegirPersonaje(){
+  elegirPregunta(){
     // chequeo != null
-
-    let indice = Math.floor(Math.random() * this.personajes.length);
-    console.log(indice);
     
-
-    setTimeout(() => {
+    this.indice = Math.floor(Math.random() * this.preguntas.length);
+    
+    if(this.preguntasUsadas.includes(this.indice)){
+      this.elegirPregunta();
+    }else{
       
+      this.preguntasUsadas.push(this.indice);
+    
+        
+      
+      this.miPregunta = this.preguntas[this.indice];
+          
+  
+        
       if(this.listadoApi){
+  
+        this.listadoApi.forEach(element => {
+          
+          if( element['name'] === this.miPregunta.opcion1)
+          {
+            this.miPregunta.opcion1 = element;
+          }
+          
+          if( element['name'] === this.miPregunta.opcion2)
+          {
+            this.miPregunta.opcion2 = element;
+          }
+          
+          if( element['name'] === this.miPregunta.opcion3)
+          {
+            this.miPregunta.opcion3 = element;
+          }
+          
+        });        
         
-        // this.listadoApi.find(pers => pers.name===this.personajes[indice])
-        
-        this.personaje = this.listadoApi[indice]
-        console.log(this.personaje);
+        // this.personaje = this.listadoApi[indice]
+        this.cargoPregunta = true;        
+        if(this.personaje){
+          
+          console.log(this.personaje);
+        }
       }
-    }, 3000);
+    }
+  
+
+    
   }
 
+
+
+  seleccionar(opcion:any){
+    if(opcion.name === this.miPregunta.correcta){
+      this.mostrarMiToast("Muy bien, sumaste un punto!!", "success");
+      this.puntos++;
+    }else{
+      this.mostrarMiToast("Perdiste una vida!", "error");
+      this.vidas--;
+      if(this.vidas==0){
+        this.mostrarMiAlert("Juego terminado. \nLograste un puntaje de: "+ this.puntos,"success");
+        this.reiniciarJuego();
+      }
+    }
+    
+    this.cargoPregunta = false;
+    setTimeout(() => {
+      this.elegirPregunta();
+      
+    }, 500);
+
+
+  }
+
+  reiniciarJuego(){
+    this.vidas=3;
+    this.puntos=0;
+    this.preguntasUsadas = Array();
+  }
+
+
+  mostrarMiToast(text:any, type:any){
+    this.miToast.fire({icon: type,
+    title: text});
+  }
+
+  mostrarMiAlert(text:any, type:any){
+    this.miAlert.fire({icon: type,
+    title: text});
+  }
+
+  miAlert = Swal.mixin({
+    position: 'center',
+  })
+
+  miToast = Swal.mixin({
+    toast: true,
+    // position: 'top-end',
+    position: 'bottom',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
 }

@@ -47972,3 +47972,33 @@ export const listaPalabras = [
 'zuzar',
 'zuzon'
 ]
+
+
+export const palabrasEspanol =[
+  'cobre',
+  'marca',
+  'plato',
+  'mosca',
+  'tramo',
+  'trato',
+  'carpa',
+  'verso',
+  'queso',
+  'brazo',
+  'plomo',
+  'nuevo',
+  'vuelo',
+  'nueva',
+  'kayak',
+  'ritmo',
+  'primo',
+  'prima',
+  'nuera',
+  'freno',
+  'sexto',
+  'suelo',
+  'tropa',
+  'lapiz',
+  'sueño',
+  'cerca'
+]

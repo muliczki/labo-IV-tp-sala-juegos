@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { listaPalabras } from 'src/app/services/apipalabras/apipalabras.service';
+import { listaPalabras, palabrasEspanol } from 'src/app/services/apipalabras/apipalabras.service';
 import Swal from 'sweetalert2';
 
 
@@ -56,6 +56,7 @@ export class WordleComponent implements OnInit {
   ]
 
   listadoPalabras = listaPalabras //sin api
+  palabrasEspanol = palabrasEspanol //sin api
   mostrarAlerta=false;
 
   actualResult='';
@@ -86,10 +87,10 @@ export class WordleComponent implements OnInit {
     
     do{
       //busco un indice teniendo como maximo el largo de mi array de palabras
-      let indice = Math.floor(Math.random() * this.listadoPalabras.length);
+      let indice = Math.floor(Math.random() * this.palabrasEspanol.length);
     
       //seteo en mayuscula la palabra
-      this.actualResult = this.listadoPalabras[indice].toUpperCase();
+      this.actualResult = this.palabrasEspanol[indice].toUpperCase();
     
       console.log(this.actualResult);
 
