@@ -1,0 +1,53 @@
+<html class="text-center">
+  <body>
+    
+<br>
+<div class="btn-group btn-group-toggle text-center" data-toggle="buttons">
+    <label class="btn btn-primary" (click)="verListado('ahorcado')">   Ahorcado   </label>
+
+    <label class="btn btn-warning" (click)="verListado('preguntados')">    Preguntados    </label>
+
+    <label class="btn btn-danger" (click)="verListado('mayormenor')">   Mayor o Menor   </label>
+
+    <label class="btn btn-success" (click)="verListado('wordle')">   Wordle    </label>
+
+  </div>
+
+  <br><br><br><br>
+
+  <div  *ngIf="mostrar" class="text-center">
+    <h2>{{juego}}</h2>
+    <div class="row justify-content-center" [ngStyle]="{background: color}" style="border: 2px solid black;">
+      <div class="col-3 fw-bold">USUARIOS</div>
+      <div class="col-3 fw-bold">PUNTOS</div>
+      <div class="col-4 fw-bold">FECHA</div>
+    </div>
+    <div class="row justify-content-center" *ngFor="let item of listado">
+      <!-- <div class="col-2">{{item.email}}</div> -->
+      <div class="col-3 fw-bold">{{item.nombre}}</div>
+      <div class="col-3">{{item.puntos}}</div>
+      <div class="col-4">{{item.fechaCreacion}}</div>
+    </div>
+
+  </div>
+
+  
+  <div  *ngIf="mostrar2" class="text-center">
+    <h2>{{juego}}</h2>
+    <div class="row justify-content-center" [ngStyle]="{background: color}" style="border: 2px solid black;">
+      <div class="col-2 fw-bold">USUARIOS</div>
+      <div class="col-2 fw-bold">GANADAS</div>
+      <div class="col-2 fw-bold">PERDIDAS</div>
+    </div>
+    <div class="row justify-content-center" *ngFor="let item of listado">
+      <!-- <div class="col-2">{{item.email}}</div> -->
+      <div class="col-2 fw-bold">{{item.nombre}}</div>
+      <div class="col-2">{{item.ganadas}}</div>
+      <div class="col-2">{{item.perdidas}}</div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

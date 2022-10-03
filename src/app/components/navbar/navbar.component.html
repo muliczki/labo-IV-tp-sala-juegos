@@ -25,6 +25,13 @@
           <a class="nav-link"[routerLink]="['/home']">Juegos</a>
         </li>
 
+        <li class="nav-item" *ngIf="auth.userLoggeado !==undefined && ruta.url !== '/login' && ruta.url !== '/signup' && ruta.url !== '/juegos/encuesta'">
+          <a class="nav-link"[routerLink]="['/juegos/encuesta']">Encuesta</a>
+        </li>
+
+        <li class="nav-item" *ngIf="auth.userLoggeado !==undefined && ruta.url !== '/login' && ruta.url !== '/signup' && ruta.url !== '/juegos/puntuaciones'">
+          <a class="nav-link"[routerLink]="['/juegos/puntuaciones']">Puntuaciones</a>
+        </li>
 
         
         <!-- <li class="nav-item">

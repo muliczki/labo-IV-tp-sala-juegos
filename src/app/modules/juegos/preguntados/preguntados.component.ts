@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
+import { PregRankingService } from './service/preg-ranking.service';
 import { ApiPreguntadosService, preguntas } from './servicio/api-preguntados.service';
 
 class Pregunta {
@@ -10,6 +12,14 @@ class Pregunta {
   opcion3:any;
   correcta:any;
 
+}
+
+export class PuntuacionPreguntados{
+
+  public nombre?:string;
+  public email?:string;
+  public fechaCreacion?:string;
+  public puntos:number =0;
 }
 
 @Component({
@@ -31,9 +41,20 @@ export class PreguntadosComponent implements OnInit {
   indice:number=-1;
   puntos = 0;
   vidas = 3;
+
+  public puntuaciones:PuntuacionPreguntados[] = [];
+  public rankingOrdenado:PuntuacionPreguntados[] = [];
+
   
-  constructor(private apiHp:ApiPreguntadosService) {
+  constructor(private apiHp:ApiPreguntadosService, private puntServ:PregRankingService, private authServ:AuthService) {
     this.miPregunta = new Pregunta();
+
+    this.puntServ.obtenerPuntuaciones().subscribe(
+      puntajes => this.puntuaciones = puntajes
+    );
+
+    this.armarPuntuacion();
+
   }
 
   
@@ -119,6 +140,15 @@ export class PreguntadosComponent implements OnInit {
       this.mostrarMiToast("Perdiste una vida!", "error");
       this.vidas--;
       if(this.vidas==0){
+        let puntuacion = new PuntuacionPreguntados();
+        puntuacion.email = this.authServ.userLoggeado;
+        puntuacion.nombre = this.authServ.nombreUserLoggeado;
+        puntuacion.fechaCreacion = this.puntServ.formatearFecha(new Date());
+        puntuacion.puntos = this.puntos;
+
+        this.puntServ.crearPuntuacion(puntuacion);
+
+        this.armarPuntuacion();
         this.mostrarMiAlert("Juego terminado. \nLograste un puntaje de: "+ this.puntos,"success");
         this.reiniciarJuego();
       }
@@ -166,4 +196,41 @@ export class PreguntadosComponent implements OnInit {
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
   })
+
+
+  armarPuntuacion(){
+
+    setTimeout(() => {
+      console.log(this.puntuaciones);
+      this.rankingOrdenado = this.puntuaciones;
+      
+      this.rankingOrdenado.sort(function (a, b) {
+        if (a.puntos < b.puntos) {
+          return 1;
+        }
+        if (a.puntos > b.puntos) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+
+      
+      console.log(this.rankingOrdenado);
+
+      // for (let index = 0; index < this.rankingOrdenado.length; index++) {
+      //   const element = this.rankingOrdenado[index];
+
+      //   let fila = new PuntuacionPreguntados();
+      //   fila.puntos = element.puntos;
+      //   fila.nombre = element.nombre;
+
+      //   this.filas.push(fila);
+
+      // }
+      
+    }, 2000);
+
+  }
+
 }

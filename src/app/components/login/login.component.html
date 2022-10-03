@@ -78,8 +78,17 @@
 					</div>
 					<br>
 					<br>
-					<div class="form-group text-center" >
-						<input type="button" value="Acceso rápido tester" class="btn btn-dark btn-sm" (click)= "accederRapido()">
+					<br>
+					<br>
+					<br>
+					<div class="form-group text-left" >
+						<input type="button" value="Acceso rápido tester" class="btn btn-dark btn-sm" (click)= "user.email='tester@tester.com'; user.pass='123456'">
+					</div>
+					<div class="form-group text-left" >
+						<input type="button" value="Acceso rápido micaela" class="btn btn-dark btn-sm" (click)= "user.email='micaela@micaela.com'; user.pass='123456'">
+					</div>
+					<div class="form-group text-left" >
+						<input type="button" value="Acceso rápido invitado" class="btn btn-dark btn-sm" (click)= "user.email='invitado@invitado.com'; user.pass='123456'">
 					</div>
 				</form>
 			</div>
@@ -92,9 +101,9 @@
 						<a [routerLink]="['/signup']"  ><b> Registrarse</b></a>
 					</div>
 				</div>
-				<div class="d-flex justify-content-center">
+				<!-- <div class="d-flex justify-content-center">
 					<a href="#"> <b> Olvidó su contraseña?</b></a>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		</div>

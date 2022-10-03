@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+
 img:hover {
     border: 10px solid white;
 }
@@ -9,11 +12,13 @@ background-repeat: no-repeat;
 height: 100vh;
 font-family: 'Numans', sans-serif;
 min-height: 100%;
+font-family: 'Numans', sans-serif;
+
 }
     
 body{
 /* Ubicación de la imagen */
-background-image: url(../../../../assets/fondo.jpg);
+background-image: url(../../../../assets/abstract-colorful-wallpapers.-fondo-para-computadora-de-colores.jpg);
 
 /* Para dejar la imagen de fondo centrada, vertical y horizontalmente */
 background-position: center center;

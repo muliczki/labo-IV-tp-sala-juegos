@@ -70,10 +70,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  accederRapido(){
-    this.user.email = "tester@tester.com";
-    this.user.pass = "123456";
-  }
 
   obtenerNombreUser(email:any){
       

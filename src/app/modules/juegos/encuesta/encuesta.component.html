@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title>SignUp Page</title>
+	<!--Made with love by Mutiullah Samim -->
+
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="encuesta.component.css">
+</head>
+
+<body>
+
+	<!-- <app-navbar></app-navbar> -->
+	<br>
+	<br>
+	<div class="container">
+		<div class="d-flex justify-content-center ">
+
+			<div class="card">
+				<div class="card-header divcard">
+					<h3 class="text-white">Encuesta</h3>
+				</div>
+				<div class="card-body divcard">
+
+					<form [formGroup]="formulario" (ngSubmit)="empezarEncuesta()">
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-address-card"></i></span>
+							</div>
+							<input type="text" formControlName="nombre" class="form-control" #nombre
+								placeholder="Nombre" [(ngModel)]="encuesta.nombre" name="nombre">
+
+						</div>
+						<div id="nombreHelp" class="form-text text-light font-weight-bold"
+							*ngIf="formulario.get('nombre')?.hasError('minlength') && formulario.get('nombre')?.touched">
+							<p>
+								El nombre debe tener minimo 3 caracteres
+							</p>
+						</div>
+
+
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-address-card"></i></span>
+							</div>
+							<input type="text" formControlName="apellido" class="form-control" #nombre
+								placeholder="Apellido" [(ngModel)]="encuesta.apellido" name="apellido">
+
+
+						</div>
+						<div id="apellidoHelp" class="form-text text-light font-weight-bold"
+							*ngIf="formulario.get('apellido')?.hasError('minlength') && formulario.get('apellido')?.touched">
+							<p>
+								El apellido debe tener minimo 3 caracteres
+							</p>
+						</div>
+						<!-- fas fa-address-card -->
+						<!-- fas fa-user -->
+
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fa fa-child"></i></span>
+							</div>
+							<input type="number" formControlName="edad" class="form-control" #nombre placeholder="Edad"
+								[(ngModel)]="encuesta.edad" name="edad">
+
+
+						</div>
+						<div id="edadHelp" class="form-text text-light font-weight-bold"
+							*ngIf="formulario.get('edad')?.hasError('min') || formulario.get('edad')?.hasError('max')  && formulario.get('edad')?.touched">
+							<p>
+								Ingresar una edad entre 18 y 99 años
+							</p>
+						</div>
+
+
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fa fa-phone"></i></span>
+							</div>
+							<input type="number" formControlName="tel" class="form-control" #tel placeholder="Telefono"
+								[(ngModel)]="encuesta.tel" name="tel">
+
+						</div>
+						<div id="telHelp" class="form-text text-light font-weight-bold"
+							*ngIf="formulario.get('tel')?.hasError('min') || formulario.get('tel')?.hasError('max') && formulario.get('tel')?.touched">
+							<p>
+								Ingresar un telefono valido entre 5 a 10 numeros
+							</p>
+						</div>
+
+						<div class="text-white">
+							<h4>Te divertiste?</h4>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="flexRadioDefault"
+									id="flexRadioDefault1">
+								<label class="form-check-label" for="flexRadioDefault1">
+									Me gusto mucho
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="flexRadioDefault"
+									id="flexRadioDefault2">
+								<label class="form-check-label" for="flexRadioDefault2">
+									No me entretuve
+								</label>
+							</div>
+
+						</div>
+
+						<br>
+						<div class="text-white">
+							<h4>Del 1 al 10, cuanto la recomendarías?</h4>
+							<div class="form-check form-check-inline" *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]">
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id={{item}}
+									value={{item}}>
+								<label class="form-check-label" for={{item}}>{{item}}</label>
+							</div>
+						</div>
+
+
+						<br>
+						<div class="text-white">
+							<h4>Qué juego agregarías?</h4>
+							<div class="form-check" #required>
+								<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+								<label class="form-check-label" for="flexCheckDefault">
+									Tateti
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+								<label class="form-check-label" for="flexCheckChecked">
+									Memotest
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+								<label class="form-check-label" for="flexCheckChecked">
+									No agregaría juegos
+								</label>
+							</div>
+						</div>
+
+						<br>
+						<div class="text-white">
+							<h4>Nos dejás algún comentario o mejora?</h4>
+							<div class="form-group">
+								<!-- <label for="exampleInputEmail1">Email address</label> -->
+								<input type="comentario" class="form-control" id="comentario"
+									aria-describedby="comentarioHelp" placeholder="Comentarios">
+								<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<input type="submit" value="Enviar" class="btn float-right login_btn"
+								[disabled]="formulario.invalid">
+						</div>
+
+						<!-- <input type="button" value="hola" (click)="mostraruser()"> -->
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
