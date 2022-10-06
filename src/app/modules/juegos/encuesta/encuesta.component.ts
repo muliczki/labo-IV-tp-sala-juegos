@@ -92,9 +92,18 @@ ngOnInit(): void {
 //   this.user.sexo="Sexo";
 // }
 
-empezarEncuesta(){
-
+enviarEncuesta(){
+  this.mostrarMiAlert("Gracias por tu respuesta!","success");
 }
+
+mostrarMiAlert(text:any, type:any){
+  this.miAlert.fire({icon: type,
+  title: text});
+}
+
+miAlert = Swal.mixin({
+  position: 'center',
+})
 
 randomInteger(min:number, max:number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
